@@ -3,11 +3,10 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
         String opcion = "S";
 
         while (opcion.equalsIgnoreCase("S")) {
@@ -15,23 +14,23 @@ public class Main {
                 System.out.println("\n--- Registro de Medicamento ---");
 
                 System.out.print("Ingrese el nombre del medicamento: ");
-                String nombre = br.readLine().trim();
+                String nombre = lector.readLine().trim();
 
                 System.out.print("Ingrese el laboratorio fabricante: ");
-                String laboratorio = br.readLine().trim();
+                String laboratorio = lector.readLine().trim();
 
                 System.out.print("Ingrese el precio por unidad: ");
-                double precio = Double.parseDouble(br.readLine());
+                double precio = Double.parseDouble(lector.readLine());
 
                 System.out.print("Ingrese la cantidad en inventario: ");
-                int cantidad = Integer.parseInt(br.readLine());
+                int cantidad = Integer.parseInt(lector.readLine());
 
                 System.out.print("Ingrese la fecha de expiración (DD/MM/AAAA): ");
-                String fechaStr = br.readLine().trim();
+                String fecha = lector.readLine().trim();
 
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 sdf.setLenient(false); // Para validar bien la fecha
-                Date fechaExpiracion = sdf.parse(fechaStr);
+                Date fechaExpiracion = sdf.parse(fecha);
 
                 // Crear el objeto Medicamento
                 Medicamento medicamento = new Medicamento(nombre, laboratorio, precio, cantidad, fechaExpiracion);
@@ -48,7 +47,7 @@ public class Main {
             do {
                 try {
                     System.out.print("\n¿Desea verificar otro medicamento? (S/N): ");
-                    opcion = br.readLine().trim().toUpperCase();
+                    opcion = lector.readLine().trim().toUpperCase();
                 } catch (IOException e) {
                     System.out.println("Error al leer la opción, saliendo del programa.");
                     opcion = "N"; // Salir si hay error

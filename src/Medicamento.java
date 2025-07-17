@@ -38,14 +38,14 @@ public class Medicamento {
     }
 
     public void mostrarInformacion() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyyy");
         System.out.println("\n--- Información del Medicamento ---");
         System.out.println("Código: " + codigo);
         System.out.println("Nombre: " + nombre);
         System.out.println("Laboratorio: " + laboratorio);
         System.out.println("Precio por unidad: $" + precio);
         System.out.println("Cantidad en inventario: " + cantidad);
-        System.out.println("Fecha de expiración: " + sdf.format(fechaExpiracion));
+        System.out.println("Fecha de expiración: " + fecha.format(fechaExpiracion));
         System.out.println(verificarVencimiento());
     }
 }
